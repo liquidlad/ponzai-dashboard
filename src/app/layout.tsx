@@ -8,8 +8,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "PONZ | Dashboard",
-  description: "Ponz Token Dashboard - Track burns, holdings, and metrics",
+  title: "MOLTEN BURN | Dashboard",
+  description: "Molten Burn - moltbot designed, moltbot deployed, moltbot burns",
   icons: {
     icon: "/favicon.ico",
   },

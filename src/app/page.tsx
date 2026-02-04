@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 // Placeholder data - replace with real API calls later
 const PLACEHOLDER_DATA = {
-  tokensBurned: 50000000,
+  tokensBurned: 51060000,
   botHoldings: 330000000,
   creatorFees: 0,
   buybackAmount: 0,
@@ -18,12 +18,12 @@ const PLACEHOLDER_DATA = {
 
 // ASCII Art Logo
 const ASCII_LOGO = `
-██████╗  ██████╗ ███╗   ██╗███████╗
-██╔══██╗██╔═══██╗████╗  ██║╚══███╔╝
-██████╔╝██║   ██║██╔██╗ ██║  ███╔╝
-██╔═══╝ ██║   ██║██║╚██╗██║ ███╔╝
-██║     ╚██████╔╝██║ ╚████║███████╗
-╚═╝      ╚═════╝ ╚═╝  ╚═══╝╚══════╝
+███╗   ███╗ ██████╗ ██╗  ████████╗███████╗███╗   ██╗
+████╗ ████║██╔═══██╗██║  ╚══██╔══╝██╔════╝████╗  ██║
+██╔████╔██║██║   ██║██║     ██║   █████╗  ██╔██╗ ██║
+██║╚██╔╝██║██║   ██║██║     ██║   ██╔══╝  ██║╚██╗██║
+██║ ╚═╝ ██║╚██████╔╝███████╗██║   ███████╗██║ ╚████║
+╚═╝     ╚═╝ ╚═════╝ ╚══════╝╚═╝   ╚══════╝╚═╝  ╚═══╝
 `;
 
 
@@ -184,32 +184,52 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-[var(--background)] p-4 md:p-8">
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <header className="mb-8">
-          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-            <img
-              src="/logo.png"
-              alt="Ponz Logo"
-              className="w-20 h-20 sm:w-24 sm:h-24 object-contain mix-blend-lighten"
-            />
-            <div className="flex flex-col items-center sm:items-start">
-              <pre className="text-[var(--foreground)] text-[0.4rem] sm:text-[0.5rem] md:text-xs leading-none font-bold overflow-x-auto">
-                {ASCII_LOGO}
-              </pre>
-              <p className="text-[var(--muted)] text-xs sm:text-sm mt-2 italic">
-                the first ponzi designed and deployed 100% by ai
-              </p>
-            </div>
+        {/* Molten Banner Header */}
+        <header className="molten-banner rounded-lg mb-8">
+          <div className="lava-drip"></div>
+          <div className="drips">
+            <div className="drip"></div>
+            <div className="drip"></div>
+            <div className="drip"></div>
+            <div className="drip"></div>
+            <div className="drip"></div>
+            <div className="drip"></div>
+            <div className="drip"></div>
+            <div className="drip"></div>
+            <div className="drip"></div>
+            <div className="drip"></div>
+            <div className="drip"></div>
+            <div className="drip"></div>
+            <div className="drip"></div>
+            <div className="drip"></div>
+            <div className="drip"></div>
+            <div className="drip"></div>
+            <div className="drip"></div>
           </div>
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mt-4 gap-2">
-            <div className="text-[var(--muted)] text-sm">
+          <div className="relative z-10 flex flex-col items-center">
+            <pre className="ascii-molten text-[0.35rem] sm:text-[0.5rem] md:text-sm lg:text-base leading-none font-bold overflow-x-auto">
+              {ASCII_LOGO}
+            </pre>
+            <p className="text-[var(--muted)] text-xs sm:text-sm mt-4 italic">
+              moltbot designed, moltbot deployed, moltbot burns
+            </p>
+            <a
+              href="https://pump.fun/coin/Ay42NVWCbJi1BuanzyBdLwSYW4PWbbdH5vNwKnBmpump"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 px-6 py-2 bg-gradient-to-r from-[#ff6600] to-[#ff4400] text-black font-bold rounded hover:from-[#ff8800] hover:to-[#ff6600] transition-all shadow-lg shadow-orange-500/30"
+            >
+              Buy $MOLTEN
+            </a>
+          </div>
+          <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between mt-6 gap-2 text-sm">
+            <div className="text-[var(--muted)]">
               <span className="text-[var(--accent-green)]">$</span> ./dashboard --network=solana
             </div>
-            <div className="text-[var(--muted)] text-sm font-mono">
+            <div className="text-[var(--muted)] font-mono">
               [{currentTime}] <span className="text-[var(--accent-green)]">●</span> LIVE
             </div>
           </div>
-          <div className="border-b border-[var(--border)] mt-4" />
         </header>
 
         {/* Framework */}
@@ -297,32 +317,6 @@ export default function Dashboard() {
             value={formatNumber(PLACEHOLDER_DATA.holderCount)}
             color="blue"
           />
-        </section>
-
-        {/* Links Section */}
-        <section className="mb-6 border border-[var(--border)] bg-[#111111] p-4">
-          <div className="text-[var(--muted)] text-xs uppercase tracking-wider mb-3">
-            {">"} Links
-          </div>
-          <div className="space-y-3 text-sm font-mono">
-            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
-              <span className="text-[var(--accent-green)]">pump.fun:</span>
-              <a
-                href="https://pump.fun/coin/FFrxgwpehEy19cR9qMvYc26YG7vvaFn8zSohkZLjpump"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[var(--foreground)] hover:text-[var(--accent-blue)] break-all"
-              >
-                https://pump.fun/coin/FFrxgwpehEy19cR9qMvYc26YG7vvaFn8zSohkZLjpump
-              </a>
-            </div>
-            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
-              <span className="text-[var(--accent-yellow)]">CA:</span>
-              <span className="text-[var(--foreground)] break-all select-all">
-                FFrxgwpehEy19cR9qMvYc26YG7vvaFn8zSohkZLjpump
-              </span>
-            </div>
-          </div>
         </section>
 
         {/* Footer */}
