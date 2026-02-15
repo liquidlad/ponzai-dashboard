@@ -214,7 +214,7 @@ export default function Dashboard() {
               moltbot designed, moltbot deployed, moltbot burns
             </p>
             <a
-              href="https://pump.fun/"
+              href="https://pump.fun/?q=moltorch&tab=market_cap"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4 px-6 py-2 bg-gradient-to-r from-[#ff6600] to-[#ff4400] text-black font-bold rounded hover:from-[#ff8800] hover:to-[#ff6600] transition-all shadow-lg shadow-orange-500/30"
