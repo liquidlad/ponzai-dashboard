@@ -8,8 +8,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "MOLTEN BURN | Dashboard",
-  description: "Molten Burn - moltbot designed, moltbot deployed, moltbot burns",
+  title: "MOLTORCH | Dashboard",
+  description: "Moltorch - moltbot designed, moltbot deployed, moltbot burns",
   icons: {
     icon: "/favicon.ico",
   },

@@ -18,12 +18,12 @@ const PLACEHOLDER_DATA = {
 
 // ASCII Art Logo
 const ASCII_LOGO = `
-███╗   ███╗ ██████╗ ██╗  ████████╗███████╗███╗   ██╗
-████╗ ████║██╔═══██╗██║  ╚══██╔══╝██╔════╝████╗  ██║
-██╔████╔██║██║   ██║██║     ██║   █████╗  ██╔██╗ ██║
-██║╚██╔╝██║██║   ██║██║     ██║   ██╔══╝  ██║╚██╗██║
-██║ ╚═╝ ██║╚██████╔╝███████╗██║   ███████╗██║ ╚████║
-╚═╝     ╚═╝ ╚═════╝ ╚══════╝╚═╝   ╚══════╝╚═╝  ╚═══╝
+███╗   ███╗ ██████╗ ██╗  ████████╗ ██████╗ ██████╗  ██████╗██╗  ██╗
+████╗ ████║██╔═══██╗██║  ╚══██╔══╝██╔═══██╗██╔══██╗██╔════╝██║  ██║
+██╔████╔██║██║   ██║██║     ██║   ██║   ██║██████╔╝██║     ███████║
+██║╚██╔╝██║██║   ██║██║     ██║   ██║   ██║██╔══██╗██║     ██╔══██║
+██║ ╚═╝ ██║╚██████╔╝███████╗██║   ╚██████╔╝██║  ██║╚██████╗██║  ██║
+╚═╝     ╚═╝ ╚═════╝ ╚══════╝╚═╝    ╚═════╝ ╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝
 `;
 
 
@@ -184,7 +184,7 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-[var(--background)] p-4 md:p-8">
       <div className="max-w-6xl mx-auto">
-        {/* Molten Banner Header */}
+        {/* Moltorch Banner Header */}
         <header className="molten-banner rounded-lg mb-8">
           <div className="lava-drip"></div>
           <div className="drips">
@@ -214,12 +214,12 @@ export default function Dashboard() {
               moltbot designed, moltbot deployed, moltbot burns
             </p>
             <a
-              href="https://pump.fun/coin/Ay42NVWCbJi1BuanzyBdLwSYW4PWbbdH5vNwKnBmpump"
+              href="https://pump.fun/"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4 px-6 py-2 bg-gradient-to-r from-[#ff6600] to-[#ff4400] text-black font-bold rounded hover:from-[#ff8800] hover:to-[#ff6600] transition-all shadow-lg shadow-orange-500/30"
             >
-              Buy $MOLTEN
+              Buy $MOLTORCH
             </a>
           </div>
           <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between mt-6 gap-2 text-sm">
