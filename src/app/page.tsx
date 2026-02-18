@@ -18,12 +18,12 @@ const PLACEHOLDER_DATA = {
 
 // ASCII Art Logo
 const ASCII_LOGO = `
-███╗   ███╗ ██████╗ ██╗  ████████╗ ██████╗ ██████╗  ██████╗██╗  ██╗
-████╗ ████║██╔═══██╗██║  ╚══██╔══╝██╔═══██╗██╔══██╗██╔════╝██║  ██║
-██╔████╔██║██║   ██║██║     ██║   ██║   ██║██████╔╝██║     ███████║
-██║╚██╔╝██║██║   ██║██║     ██║   ██║   ██║██╔══██╗██║     ██╔══██║
-██║ ╚═╝ ██║╚██████╔╝███████╗██║   ╚██████╔╝██║  ██║╚██████╗██║  ██║
-╚═╝     ╚═╝ ╚═════╝ ╚══════╝╚═╝    ╚═════╝ ╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝
+ ██████╗ ██████╗ ███████╗███╗   ██╗███████╗██╗      █████╗ ███╗   ███╗███████╗
+██╔═══██╗██╔══██╗██╔════╝████╗  ██║██╔════╝██║     ██╔══██╗████╗ ████║██╔════╝
+██║   ██║██████╔╝█████╗  ██╔██╗ ██║█████╗  ██║     ███████║██╔████╔██║█████╗
+██║   ██║██╔═══╝ ██╔══╝  ██║╚██╗██║██╔══╝  ██║     ██╔══██║██║╚██╔╝██║██╔══╝
+╚██████╔╝██║     ███████╗██║ ╚████║██║     ███████╗██║  ██║██║ ╚═╝ ██║███████╗
+ ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═══╝╚═╝     ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝
 `;
 
 
@@ -184,7 +184,7 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-[var(--background)] p-4 md:p-8">
       <div className="max-w-6xl mx-auto">
-        {/* Moltorch Banner Header */}
+        {/* OpenFlame Banner Header */}
         <header className="molten-banner rounded-lg mb-8">
           <div className="lava-drip"></div>
           <div className="drips">
@@ -211,15 +211,15 @@ export default function Dashboard() {
               {ASCII_LOGO}
             </pre>
             <p className="text-[var(--muted)] text-xs sm:text-sm mt-4 italic">
-              moltbot designed, moltbot deployed, moltbot burns
+              clawdbot designed, clawdbot deployed, clawdbot burns
             </p>
             <a
-              href="https://pump.fun/?q=moltorch&tab=market_cap"
+              href="https://pump.fun/?q=flame&tab=market_cap"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4 px-6 py-2 bg-gradient-to-r from-[#ff6600] to-[#ff4400] text-black font-bold rounded hover:from-[#ff8800] hover:to-[#ff6600] transition-all shadow-lg shadow-orange-500/30"
             >
-              Buy $MOLTORCH
+              Buy $FLAME
             </a>
           </div>
           <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between mt-6 gap-2 text-sm">
