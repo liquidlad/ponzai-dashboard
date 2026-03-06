@@ -13,7 +13,7 @@ const PLACEHOLDER_DATA = {
   totalSupply: 1000000000,
   circulatingSupply: 950000000,
   holderCount: 17,
-  burnIntervalMinutes: 15,
+  burnIntervalMinutes: 5,
 };
 
 // ASCII Art Logo
@@ -113,7 +113,7 @@ function CountdownTimer({ intervalMinutes }: { intervalMinutes: number }) {
   return (
     <div className="border border-[var(--border)] p-4 bg-[#111111] hover:border-[var(--muted)] transition-colors">
       <div className="text-[var(--muted)] text-xs uppercase tracking-wider mb-2">
-        {">"} Next 1% Burn In
+        {">"} Next 5% Burn In
       </div>
       <div className="text-3xl font-bold text-[var(--accent-yellow)] font-mono">
         {pad(timeLeft.minutes)}:{pad(timeLeft.seconds)}
@@ -240,15 +240,15 @@ export default function Dashboard() {
           <div className="space-y-2 text-sm font-mono">
             <div className="flex items-start gap-2">
               <span className="text-[var(--accent-blue)]">01</span>
-              <span>33% initial buy to supply control with immediate 5% burn</span>
+              <span>40% initial buy to supply control with immediate 5% burn</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-[var(--accent-yellow)]">02</span>
-              <span>1% burn every 15m</span>
+              <span>5% burn every 5m</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-[var(--accent-green)]">03</span>
-              <span>Creator fees 100% buyback every 15m</span>
+              <span>Creator fees 100% buyback every 5m</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-[var(--accent-red)]">04</span>
