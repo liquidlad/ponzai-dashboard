@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 // Placeholder data - replace with real API calls later
 const PLACEHOLDER_DATA = {
   tokensBurned: 51060000,
-  botHoldings: 330000000,
+  botHoldings: 349990000,
   creatorFees: 0,
   buybackAmount: 0,
   tokenPrice: null,
