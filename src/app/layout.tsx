@@ -8,8 +8,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "OPENFIRE | Dashboard",
-  description: "OpenFire - clawdbot designed, clawdbot deployed, clawdbot burns",
+  title: "COIN DELETE | Dashboard",
+  description: "Coin Delete - clawdbot designed, clawdbot deployed, clawdbot burns",
   icons: {
     icon: "/favicon.ico",
   },
