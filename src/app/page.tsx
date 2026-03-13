@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 const PLACEHOLDER_DATA = {
   tokensBurned: 0,
   botHoldings: 528600000,
-  creatorFees: 0,
+  creatorFees: 11.28,
   buybackAmount: 0,
   tokenPrice: null,
   marketCap: null,
