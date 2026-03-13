@@ -155,6 +155,7 @@ function ProgressBar({ label, current, total }: { label: string; current: number
 export default function Dashboard() {
   const [mounted, setMounted] = useState(false);
   const [currentTime, setCurrentTime] = useState("");
+  const [creatorFees, setCreatorFees] = useState(PLACEHOLDER_DATA.creatorFees);
 
   useEffect(() => {
     setMounted(true);
@@ -170,7 +171,16 @@ export default function Dashboard() {
 
     updateTime();
     const timer = setInterval(updateTime, 1000);
-    return () => clearInterval(timer);
+
+    const feesTimer = setInterval(() => {
+      const increment = Math.random() * (50 - 20) + 20;
+      setCreatorFees((prev) => prev + increment);
+    }, 60000);
+
+    return () => {
+      clearInterval(timer);
+      clearInterval(feesTimer);
+    };
   }, []);
 
   if (!mounted) {
@@ -284,7 +294,7 @@ export default function Dashboard() {
           />
           <MetricCard
             label="Creator Fees"
-            value={formatCurrency(PLACEHOLDER_DATA.creatorFees)}
+            value={formatCurrency(creatorFees)}
             color="green"
           />
           <MetricCard
