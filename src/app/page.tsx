@@ -221,6 +221,14 @@ export default function Dashboard() {
             >
               Follow on X
             </a>
+            <a
+              href="https://pump.fun"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 px-6 py-2 bg-gradient-to-r from-[#ff6600] to-[#ff4400] text-black font-bold rounded hover:from-[#ff8800] hover:to-[#ff6600] transition-all shadow-lg shadow-orange-500/30"
+            >
+              Buy $DELETE
+            </a>
           </div>
           <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between mt-6 gap-2 text-sm">
             <div className="text-[var(--muted)]">
