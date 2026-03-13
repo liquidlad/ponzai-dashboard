@@ -11,7 +11,7 @@ const PLACEHOLDER_DATA = {
   tokenPrice: null,
   marketCap: null,
   totalSupply: 1000000000,
-  circulatingSupply: 950000000,
+  circulatingSupply: 1000000000,
   holderCount: 17,
   burnIntervalMinutes: 10,
 };
