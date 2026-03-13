@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 // Placeholder data - replace with real API calls later
 const PLACEHOLDER_DATA = {
-  tokensBurned: 0,
+  tokensBurned: 50000000,
   botHoldings: 528600000,
   creatorFees: 11.28,
   buybackAmount: 0,
@@ -303,7 +303,7 @@ export default function Dashboard() {
         <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
           <MetricCard
             label="Tokens Burned"
-            value={formatNumber(PLACEHOLDER_DATA.tokensBurned)}
+            value={`${formatNumber(PLACEHOLDER_DATA.tokensBurned)} (${((PLACEHOLDER_DATA.tokensBurned / PLACEHOLDER_DATA.totalSupply) * 100).toFixed(0)}%)`}
             color="red"
           />
           <MetricCard
