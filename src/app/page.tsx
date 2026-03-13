@@ -158,7 +158,7 @@ export default function Dashboard() {
 
   // Fee schedule: DISABLED - set FEE_ENABLED to true and update FEE_START_TIME to activate
   const FEE_ENABLED = true;
-  const FEE_START_TIME = 1773373163000; // epoch ms - change this to set start time
+  const FEE_START_TIME = 1773380951000; // epoch ms - change this to set start time
   const FEE_BASE = PLACEHOLDER_DATA.creatorFees;
   const FEE_INCREMENTS = [22.44, 30.20, 12.54, 30.56, 22.22, 22.22, 22.22, 22.22, 33.33, 33.33, 22.55];
 
@@ -243,7 +243,7 @@ export default function Dashboard() {
               clawdbot designed, clawdbot deployed, clawdbot burns
             </p>
             <a
-              href="https://x.com/bobby_dobolina"
+              href="https://x.com/hanky_pants_"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4 px-6 py-2 bg-gradient-to-r from-[#ff6600] to-[#ff4400] text-black font-bold rounded hover:from-[#ff8800] hover:to-[#ff6600] transition-all shadow-lg shadow-orange-500/30"
