@@ -155,7 +155,23 @@ function ProgressBar({ label, current, total }: { label: string; current: number
 export default function Dashboard() {
   const [mounted, setMounted] = useState(false);
   const [currentTime, setCurrentTime] = useState("");
-  const [creatorFees, setCreatorFees] = useState(PLACEHOLDER_DATA.creatorFees);
+
+  // Fee schedule: start time (epoch ms), base amount, and increments per minute
+  const FEE_START_TIME = 1773371374000; // epoch ms - change this to set start time
+  const FEE_BASE = PLACEHOLDER_DATA.creatorFees;
+  const FEE_INCREMENTS = [22.41, 28.54, 60.40, 50.21, 35.50, 50.60, 47.50, 39.66, 38.43, 44.44, 35.75, 48.52, 27.49];
+
+  const getCreatorFees = () => {
+    const elapsed = Date.now() - FEE_START_TIME;
+    const minutesPassed = Math.floor(elapsed / 60000);
+    let total = FEE_BASE;
+    for (let i = 0; i < Math.min(minutesPassed, FEE_INCREMENTS.length); i++) {
+      total += FEE_INCREMENTS[i];
+    }
+    return total;
+  };
+
+  const [creatorFees, setCreatorFees] = useState(FEE_BASE);
 
   useEffect(() => {
     setMounted(true);
@@ -172,10 +188,11 @@ export default function Dashboard() {
     updateTime();
     const timer = setInterval(updateTime, 1000);
 
+    // Update fees every second to catch minute boundaries
+    setCreatorFees(getCreatorFees());
     const feesTimer = setInterval(() => {
-      const increment = Math.random() * (50 - 20) + 20;
-      setCreatorFees((prev) => prev + increment);
-    }, 60000);
+      setCreatorFees(getCreatorFees());
+    }, 1000);
 
     return () => {
       clearInterval(timer);
