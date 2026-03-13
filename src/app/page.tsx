@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 
 // Placeholder data - replace with real API calls later
 const PLACEHOLDER_DATA = {
-  tokensBurned: 51060000,
-  botHoldings: 349990000,
+  tokensBurned: 0,
+  botHoldings: 528600000,
   creatorFees: 0,
   buybackAmount: 0,
   tokenPrice: null,
@@ -13,7 +13,7 @@ const PLACEHOLDER_DATA = {
   totalSupply: 1000000000,
   circulatingSupply: 950000000,
   holderCount: 17,
-  burnIntervalMinutes: 5,
+  burnIntervalMinutes: 10,
 };
 
 // ASCII Art Logo
@@ -244,11 +244,11 @@ export default function Dashboard() {
             </div>
             <div className="flex items-start gap-2">
               <span className="text-[var(--accent-yellow)]">02</span>
-              <span>5% burn every 5m</span>
+              <span>5% burn every 10m</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-[var(--accent-green)]">03</span>
-              <span>Creator fees 100% buyback every 5m</span>
+              <span>Creator fees 100% buyback every 10m</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-[var(--accent-red)]">04</span>
