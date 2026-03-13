@@ -158,7 +158,7 @@ export default function Dashboard() {
 
   // Fee schedule: DISABLED - set FEE_ENABLED to true and update FEE_START_TIME to activate
   const FEE_ENABLED = true;
-  const FEE_START_TIME = 1773372902000; // epoch ms - change this to set start time
+  const FEE_START_TIME = 1773373163000; // epoch ms - change this to set start time
   const FEE_BASE = PLACEHOLDER_DATA.creatorFees;
   const FEE_INCREMENTS = [22.41, 28.54, 60.40, 50.21, 35.50, 50.60, 47.50, 39.66, 38.43, 44.44, 35.75, 48.52, 27.49];
 
