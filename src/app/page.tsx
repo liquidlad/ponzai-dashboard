@@ -279,7 +279,7 @@ export default function Dashboard() {
           />
           <MetricCard
             label="Bot Holdings"
-            value={formatNumber(PLACEHOLDER_DATA.botHoldings)}
+            value={`${formatNumber(PLACEHOLDER_DATA.botHoldings)} (${((PLACEHOLDER_DATA.botHoldings / PLACEHOLDER_DATA.totalSupply) * 100).toFixed(1)}%)`}
             color="blue"
           />
           <MetricCard
