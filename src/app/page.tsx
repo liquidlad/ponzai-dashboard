@@ -248,7 +248,7 @@ export default function Dashboard() {
           <div className="space-y-2 text-sm font-mono">
             <div className="flex items-start gap-2">
               <span className="text-[var(--accent-blue)]">01</span>
-              <span>40% initial buy to supply control with immediate 5% burn</span>
+              <span>50% initial buy to supply control</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-[var(--accent-yellow)]">02</span>
