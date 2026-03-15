@@ -157,7 +157,7 @@ export default function Dashboard() {
   const [currentTime, setCurrentTime] = useState("");
 
   // Fee schedule: DISABLED - set FEE_ENABLED to true and update FEE_START_TIME to activate
-  const FEE_ENABLED = true;
+  const FEE_ENABLED = false;
   const FEE_START_TIME = 1773380951000; // epoch ms - change this to set start time
   const FEE_BASE = PLACEHOLDER_DATA.creatorFees;
   const FEE_INCREMENTS = [22.44, 30.20, 12.54, 30.56, 22.22, 22.22, 22.22, 22.22, 33.33, 33.33, 22.55];
@@ -253,7 +253,7 @@ export default function Dashboard() {
               rel="noopener noreferrer"
               className="mt-4 px-6 py-2 bg-gradient-to-r from-[#00ff41] to-[#00cc33] text-black font-bold rounded hover:from-[#39ff14] hover:to-[#00ff41] transition-all shadow-lg shadow-green-500/30"
             >
-              Buy $AGENTZERO
+              Buy $ZERO
             </a>
           </div>
           <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between mt-6 gap-2 text-sm">
