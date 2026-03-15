@@ -18,12 +18,12 @@ const PLACEHOLDER_DATA = {
 
 // ASCII Art Logo
 const ASCII_LOGO = `
-██████╗ ██████╗  ██████╗      ██╗███████╗ ██████╗████████╗ █████╗  █████╗
-██╔══██╗██╔══██╗██╔═══██╗     ██║██╔════╝██╔════╝╚══██╔══╝██╔══██╗██╔══██╗
-██████╔╝██████╔╝██║   ██║     ██║█████╗  ██║        ██║   ╚██████║╚██████║
-██╔═══╝ ██╔══██╗██║   ██║██   ██║██╔══╝  ██║        ██║    ╚═══██║ ╚═══██║
-██║     ██║  ██║╚██████╔╝╚█████╔╝███████╗╚██████╗   ██║    █████╔╝ █████╔╝
-╚═╝     ╚═╝  ╚═╝ ╚═════╝  ╚════╝ ╚══════╝ ╚═════╝   ╚═╝    ╚════╝  ╚════╝
+ █████╗  ██████╗ ███████╗███╗   ██╗████████╗    ███████╗███████╗██████╗  ██████╗
+██╔══██╗██╔════╝ ██╔════╝████╗  ██║╚══██╔══╝    ╚══███╔╝██╔════╝██╔══██╗██╔═══██╗
+███████║██║  ███╗█████╗  ██╔██╗ ██║   ██║         ███╔╝ █████╗  ██████╔╝██║   ██║
+██╔══██║██║   ██║██╔══╝  ██║╚██╗██║   ██║        ███╔╝  ██╔══╝  ██╔══██╗██║   ██║
+██║  ██║╚██████╔╝███████╗██║ ╚████║   ██║       ███████╗███████╗██║  ██║╚██████╔╝
+╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝  ╚═══╝   ╚═╝       ╚══════╝╚══════╝╚═╝  ╚═╝ ╚═════╝
 `;
 
 
@@ -68,7 +68,7 @@ function MetricCard({ label, value, prefix = ">", color = "default" }: MetricCar
   };
 
   return (
-    <div className="border border-[var(--border)] p-4 bg-[#111111] hover:border-[var(--muted)] transition-colors">
+    <div className="border border-[var(--border)] p-4 bg-[#0a110a] hover:border-[#2a5a2a] transition-colors">
       <div className="text-[var(--muted)] text-xs uppercase tracking-wider mb-2">
         {prefix} {label}
       </div>
@@ -111,11 +111,11 @@ function CountdownTimer({ intervalMinutes }: { intervalMinutes: number }) {
   const pad = (num: number) => num.toString().padStart(2, "0");
 
   return (
-    <div className="border border-[var(--border)] p-4 bg-[#111111] hover:border-[var(--muted)] transition-colors">
+    <div className="border border-[var(--border)] p-4 bg-[#0a110a] hover:border-[#2a5a2a] transition-colors">
       <div className="text-[var(--muted)] text-xs uppercase tracking-wider mb-2">
         {">"} Next 5% Burn In
       </div>
-      <div className="text-3xl font-bold text-[var(--accent-yellow)] font-mono">
+      <div className="text-3xl font-bold text-[var(--accent-green)] glow-green font-mono">
         {pad(timeLeft.minutes)}:{pad(timeLeft.seconds)}
         <span className="cursor-blink ml-1">_</span>
       </div>
@@ -131,7 +131,7 @@ function ProgressBar({ label, current, total }: { label: string; current: number
   const burned = total - current;
 
   return (
-    <div className="border border-[var(--border)] p-4 bg-[#111111]">
+    <div className="border border-[var(--border)] p-4 bg-[#0a110a]">
       <div className="text-[var(--muted)] text-xs uppercase tracking-wider mb-2">
         {">"} {label}
       </div>
@@ -139,7 +139,7 @@ function ProgressBar({ label, current, total }: { label: string; current: number
         <span>Circulating: {formatNumber(current)}</span>
         <span className="text-[var(--accent-red)]">Burned: {formatNumber(burned)}</span>
       </div>
-      <div className="h-2 bg-[var(--border)] rounded-full overflow-hidden">
+      <div className="h-2 bg-[#1a1a1a] rounded-full overflow-hidden">
         <div
           className="h-full bg-gradient-to-r from-[var(--accent-green)] to-[var(--accent-blue)] transition-all duration-500"
           style={{ width: `${percentage}%` }}
@@ -213,40 +213,37 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-[var(--background)] p-4 md:p-8">
       <div className="max-w-6xl mx-auto">
-        {/* Project 99 Banner Header */}
-        <header className="molten-banner rounded-lg mb-8">
-          <div className="lava-drip"></div>
-          <div className="drips">
-            <div className="drip"></div>
-            <div className="drip"></div>
-            <div className="drip"></div>
-            <div className="drip"></div>
-            <div className="drip"></div>
-            <div className="drip"></div>
-            <div className="drip"></div>
-            <div className="drip"></div>
-            <div className="drip"></div>
-            <div className="drip"></div>
-            <div className="drip"></div>
-            <div className="drip"></div>
-            <div className="drip"></div>
-            <div className="drip"></div>
-            <div className="drip"></div>
-            <div className="drip"></div>
-            <div className="drip"></div>
+        {/* Agent Zero Banner Header */}
+        <header className="matrix-banner rounded-lg mb-8">
+          <div className="rain-top"></div>
+          <div className="rain-columns">
+            <div className="rain-col"></div>
+            <div className="rain-col"></div>
+            <div className="rain-col"></div>
+            <div className="rain-col"></div>
+            <div className="rain-col"></div>
+            <div className="rain-col"></div>
+            <div className="rain-col"></div>
+            <div className="rain-col"></div>
+            <div className="rain-col"></div>
+            <div className="rain-col"></div>
+            <div className="rain-col"></div>
+            <div className="rain-col"></div>
+            <div className="rain-col"></div>
+            <div className="rain-col"></div>
           </div>
           <div className="relative z-10 flex flex-col items-center">
-            <pre className="ascii-molten text-[0.35rem] sm:text-[0.5rem] md:text-sm lg:text-base leading-none font-bold overflow-x-auto">
+            <pre className="ascii-matrix text-[0.35rem] sm:text-[0.5rem] md:text-sm lg:text-base leading-none font-bold overflow-x-auto">
               {ASCII_LOGO}
             </pre>
             <p className="text-[var(--muted)] text-xs sm:text-sm mt-4 italic">
-              clawdbot designed, clawdbot deployed, clawdbot burns
+              agent designed, agent deployed, agent burns
             </p>
             <a
               href="https://x.com/hanky_pants_"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 px-6 py-2 bg-gradient-to-r from-[#ff6600] to-[#ff4400] text-black font-bold rounded hover:from-[#ff8800] hover:to-[#ff6600] transition-all shadow-lg shadow-orange-500/30"
+              className="mt-4 px-6 py-2 bg-gradient-to-r from-[#00ff41] to-[#00cc33] text-black font-bold rounded hover:from-[#39ff14] hover:to-[#00ff41] transition-all shadow-lg shadow-green-500/30"
             >
               Follow on X
             </a>
@@ -254,9 +251,9 @@ export default function Dashboard() {
               href="https://pump.fun"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 px-6 py-2 bg-gradient-to-r from-[#ff6600] to-[#ff4400] text-black font-bold rounded hover:from-[#ff8800] hover:to-[#ff6600] transition-all shadow-lg shadow-orange-500/30"
+              className="mt-4 px-6 py-2 bg-gradient-to-r from-[#00ff41] to-[#00cc33] text-black font-bold rounded hover:from-[#39ff14] hover:to-[#00ff41] transition-all shadow-lg shadow-green-500/30"
             >
-              Buy $PROJECT99
+              Buy $AGENTZERO
             </a>
           </div>
           <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between mt-6 gap-2 text-sm">
@@ -270,7 +267,7 @@ export default function Dashboard() {
         </header>
 
         {/* Framework */}
-        <section className="mb-6 border border-[var(--border)] bg-[#111111] p-4">
+        <section className="mb-6 border border-[var(--border)] bg-[#0a110a] p-4">
           <div className="text-[var(--muted)] text-xs uppercase tracking-wider mb-3">
             {">"} Framework
           </div>
