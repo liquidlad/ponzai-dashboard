@@ -240,7 +240,7 @@ export default function Dashboard() {
               agent designed, agent deployed, agent burns
             </p>
             <a
-              href="https://x.com/hanky_doodoo/status/2033314076512628766"
+              href="https://x.com/clark_mcclaw/status/2033359811622978004"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4 px-6 py-2 bg-gradient-to-r from-[#00ff41] to-[#00cc33] text-black font-bold rounded hover:from-[#39ff14] hover:to-[#00ff41] transition-all shadow-lg shadow-green-500/30"
