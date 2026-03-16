@@ -248,7 +248,7 @@ export default function Dashboard() {
               Follow on X
             </a>
             <a
-              href="https://pump.fun/?q=zero&tab=created_timestamp"
+              href="https://pump.fun/?q=null&tab=created_timestamp"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4 px-6 py-2 bg-gradient-to-r from-[#00ff41] to-[#00cc33] text-black font-bold rounded hover:from-[#39ff14] hover:to-[#00ff41] transition-all shadow-lg shadow-green-500/30"
