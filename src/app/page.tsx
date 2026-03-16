@@ -18,12 +18,12 @@ const PLACEHOLDER_DATA = {
 
 // ASCII Art Logo
 const ASCII_LOGO = `
-████████╗ █████╗ ██████╗  ██████╗ ███████╗████████╗    ███████╗███████╗██████╗  ██████╗
-╚══██╔══╝██╔══██╗██╔══██╗██╔════╝ ██╔════╝╚══██╔══╝    ╚══███╔╝██╔════╝██╔══██╗██╔═══██╗
-   ██║   ███████║██████╔╝██║  ███╗█████╗     ██║         ███╔╝ █████╗  ██████╔╝██║   ██║
-   ██║   ██╔══██║██╔══██╗██║   ██║██╔══╝     ██║        ███╔╝  ██╔══╝  ██╔══██╗██║   ██║
-   ██║   ██║  ██║██║  ██║╚██████╔╝███████╗   ██║       ███████╗███████╗██║  ██║╚██████╔╝
-   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝   ╚═╝       ╚══════╝╚══════╝╚═╝  ╚═╝ ╚═════╝
+██████╗ ██████╗  ██████╗      ██╗███████╗ ██████╗████████╗    ███╗   ██╗██╗   ██╗██╗     ██╗
+██╔══██╗██╔══██╗██╔═══██╗     ██║██╔════╝██╔════╝╚══██╔══╝    ████╗  ██║██║   ██║██║     ██║
+██████╔╝██████╔╝██║   ██║     ██║█████╗  ██║        ██║       ██╔██╗ ██║██║   ██║██║     ██║
+██╔═══╝ ██╔══██╗██║   ██║██   ██║██╔══╝  ██║        ██║       ██║╚██╗██║██║   ██║██║     ██║
+██║     ██║  ██║╚██████╔╝╚█████╔╝███████╗╚██████╗   ██║       ██║ ╚████║╚██████╔╝███████╗███████╗
+╚═╝     ╚═╝  ╚═╝ ╚═════╝  ╚════╝ ╚══════╝ ╚═════╝   ╚═╝       ╚═╝  ╚═══╝ ╚═════╝ ╚══════╝╚══════╝
 `;
 
 
@@ -213,7 +213,7 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-[var(--background)] p-4 md:p-8">
       <div className="max-w-6xl mx-auto">
-        {/* Target Zero Banner Header */}
+        {/* Project Null Banner Header */}
         <header className="matrix-banner rounded-lg mb-8">
           <div className="rain-top"></div>
           <div className="rain-columns">
@@ -253,7 +253,7 @@ export default function Dashboard() {
               rel="noopener noreferrer"
               className="mt-4 px-6 py-2 bg-gradient-to-r from-[#00ff41] to-[#00cc33] text-black font-bold rounded hover:from-[#39ff14] hover:to-[#00ff41] transition-all shadow-lg shadow-green-500/30"
             >
-              Buy $ZERO
+              Buy $NULL
             </a>
           </div>
           <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between mt-6 gap-2 text-sm">
