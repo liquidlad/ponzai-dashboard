@@ -22,7 +22,7 @@
     .banner {
       width: 1500px;
       height: 500px;
-      background: linear-gradient(180deg, #001a00 0%, #000a00 30%, #000 100%);
+      background: linear-gradient(180deg, #1a0800 0%, #0d0400 30%, #000 100%);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -30,69 +30,71 @@
       overflow: hidden;
     }
 
-    .rain-top {
+    .flame-top {
       position: absolute;
       top: 0;
       width: 100%;
       height: 120px;
       background: linear-gradient(180deg,
-        #00ff41 0%,
-        #00cc33 20%,
-        #009922 40%,
-        rgba(0, 255, 65, 0.5) 60%,
-        rgba(0, 255, 65, 0.2) 80%,
+        #F48C06 0%,
+        #E85D04 20%,
+        #DC2F02 40%,
+        rgba(244, 140, 6, 0.5) 60%,
+        rgba(244, 140, 6, 0.2) 80%,
         transparent 100%
       );
       filter: blur(3px);
       animation: pulse 3s ease-in-out infinite;
     }
 
-    .rain-top::before {
+    .flame-top::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       height: 30px;
-      background: linear-gradient(180deg, #80ffa0 0%, #00ff41 50%, #00aa30 100%);
+      background: linear-gradient(180deg, #FFBA08 0%, #F48C06 50%, #E85D04 100%);
       filter: blur(1px);
     }
 
-    .rain-columns {
+    .flame-columns {
       position: absolute;
       top: 80px;
       width: 100%;
       height: 200px;
     }
 
-    .rain-col {
+    .flame-col {
       position: absolute;
       width: 3px;
-      background: linear-gradient(180deg, #00ff41, #00cc33, #008822, transparent);
+      background: linear-gradient(180deg, #FFBA08, #F48C06, #DC2F02, transparent);
       border-radius: 0 0 50% 50%;
       opacity: 0.6;
-      animation: rainFall 3s ease-in infinite;
+      animation: flameLick 3s ease-in infinite;
     }
 
-    .rain-col:nth-child(1) { left: 8%; height: 60px; animation-delay: 0s; }
-    .rain-col:nth-child(2) { left: 14%; height: 80px; animation-delay: 0.5s; }
-    .rain-col:nth-child(3) { left: 21%; height: 45px; animation-delay: 1s; }
-    .rain-col:nth-child(4) { left: 27%; height: 70px; animation-delay: 0.3s; }
-    .rain-col:nth-child(5) { left: 34%; height: 55px; animation-delay: 0.8s; }
-    .rain-col:nth-child(6) { left: 40%; height: 90px; animation-delay: 0.2s; }
-    .rain-col:nth-child(7) { left: 47%; height: 50px; animation-delay: 1.2s; }
-    .rain-col:nth-child(8) { left: 53%; height: 65px; animation-delay: 0.6s; }
-    .rain-col:nth-child(9) { left: 60%; height: 75px; animation-delay: 0.9s; }
-    .rain-col:nth-child(10) { left: 66%; height: 40px; animation-delay: 1.5s; }
-    .rain-col:nth-child(11) { left: 73%; height: 85px; animation-delay: 0.4s; }
-    .rain-col:nth-child(12) { left: 79%; height: 55px; animation-delay: 1.1s; }
-    .rain-col:nth-child(13) { left: 86%; height: 70px; animation-delay: 0.7s; }
-    .rain-col:nth-child(14) { left: 92%; height: 45px; animation-delay: 1.3s; }
+    .flame-col:nth-child(1) { left: 8%; height: 60px; animation-delay: 0s; }
+    .flame-col:nth-child(2) { left: 14%; height: 80px; animation-delay: 0.5s; }
+    .flame-col:nth-child(3) { left: 21%; height: 45px; animation-delay: 1s; }
+    .flame-col:nth-child(4) { left: 27%; height: 70px; animation-delay: 0.3s; }
+    .flame-col:nth-child(5) { left: 34%; height: 55px; animation-delay: 0.8s; }
+    .flame-col:nth-child(6) { left: 40%; height: 90px; animation-delay: 0.2s; }
+    .flame-col:nth-child(7) { left: 47%; height: 50px; animation-delay: 1.2s; }
+    .flame-col:nth-child(8) { left: 53%; height: 65px; animation-delay: 0.6s; }
+    .flame-col:nth-child(9) { left: 60%; height: 75px; animation-delay: 0.9s; }
+    .flame-col:nth-child(10) { left: 66%; height: 40px; animation-delay: 1.5s; }
+    .flame-col:nth-child(11) { left: 73%; height: 85px; animation-delay: 0.4s; }
+    .flame-col:nth-child(12) { left: 79%; height: 55px; animation-delay: 1.1s; }
+    .flame-col:nth-child(13) { left: 86%; height: 70px; animation-delay: 0.7s; }
+    .flame-col:nth-child(14) { left: 92%; height: 45px; animation-delay: 1.3s; }
 
-    @keyframes rainFall {
-      0% { opacity: 0.8; transform: translateY(-10px); }
-      50% { opacity: 0.4; transform: translateY(20px); }
-      100% { opacity: 0.8; transform: translateY(-10px); }
+    @keyframes flameLick {
+      0% { opacity: 0.8; transform: translateY(0px) scaleY(1); }
+      25% { opacity: 0.6; transform: translateY(-8px) scaleY(1.1); }
+      50% { opacity: 0.4; transform: translateY(-15px) scaleY(0.9); }
+      75% { opacity: 0.6; transform: translateY(-8px) scaleY(1.05); }
+      100% { opacity: 0.8; transform: translateY(0px) scaleY(1); }
     }
 
     @keyframes pulse {
@@ -106,12 +108,12 @@
       font-weight: 700;
       line-height: 1.1;
       white-space: pre;
-      color: #00ff41;
+      color: #F48C06;
       text-shadow:
-        0 0 10px #00ff41,
-        0 0 20px #00cc33,
-        0 0 40px #009922,
-        0 0 80px rgba(0, 255, 65, 0.3);
+        0 0 10px #F48C06,
+        0 0 20px #E85D04,
+        0 0 40px #DC2F02,
+        0 0 80px rgba(244, 140, 6, 0.3);
       position: relative;
       z-index: 10;
       animation: glow 2s ease-in-out infinite alternate;
@@ -120,17 +122,17 @@
     @keyframes glow {
       from {
         text-shadow:
-          0 0 10px #00ff41,
-          0 0 20px #00cc33,
-          0 0 40px #009922,
-          0 0 80px rgba(0, 255, 65, 0.3);
+          0 0 10px #F48C06,
+          0 0 20px #E85D04,
+          0 0 40px #DC2F02,
+          0 0 80px rgba(244, 140, 6, 0.3);
       }
       to {
         text-shadow:
-          0 0 15px #80ffa0,
-          0 0 30px #00ff41,
-          0 0 60px #00cc33,
-          0 0 100px rgba(0, 255, 65, 0.5);
+          0 0 15px #FFBA08,
+          0 0 30px #F48C06,
+          0 0 60px #E85D04,
+          0 0 100px rgba(244, 140, 6, 0.5);
       }
     }
 
@@ -139,7 +141,7 @@
       bottom: 60px;
       font-family: 'JetBrains Mono', monospace;
       font-size: 18px;
-      color: #5a5a5a;
+      color: #8a7560;
       font-style: italic;
       letter-spacing: 2px;
     }
@@ -147,29 +149,29 @@
 </head>
 <body>
   <div class="banner">
-    <div class="rain-top"></div>
-    <div class="rain-columns">
-      <div class="rain-col"></div>
-      <div class="rain-col"></div>
-      <div class="rain-col"></div>
-      <div class="rain-col"></div>
-      <div class="rain-col"></div>
-      <div class="rain-col"></div>
-      <div class="rain-col"></div>
-      <div class="rain-col"></div>
-      <div class="rain-col"></div>
-      <div class="rain-col"></div>
-      <div class="rain-col"></div>
-      <div class="rain-col"></div>
-      <div class="rain-col"></div>
-      <div class="rain-col"></div>
+    <div class="flame-top"></div>
+    <div class="flame-columns">
+      <div class="flame-col"></div>
+      <div class="flame-col"></div>
+      <div class="flame-col"></div>
+      <div class="flame-col"></div>
+      <div class="flame-col"></div>
+      <div class="flame-col"></div>
+      <div class="flame-col"></div>
+      <div class="flame-col"></div>
+      <div class="flame-col"></div>
+      <div class="flame-col"></div>
+      <div class="flame-col"></div>
+      <div class="flame-col"></div>
+      <div class="flame-col"></div>
+      <div class="flame-col"></div>
     </div>
-    <pre class="ascii-logo">██████╗ ██████╗  ██████╗      ██╗███████╗ ██████╗████████╗    ██╗   ██╗███╗   ██╗██████╗  ██████╗
-██╔══██╗██╔══██╗██╔═══██╗     ██║██╔════╝██╔════╝╚══██╔══╝    ██║   ██║████╗  ██║██╔══██╗██╔═══██╗
-██████╔╝██████╔╝██║   ██║     ██║█████╗  ██║        ██║       ██║   ██║██╔██╗ ██║██║  ██║██║   ██║
-██╔═══╝ ██╔══██╗██║   ██║██   ██║██╔══╝  ██║        ██║       ██║   ██║██║╚██╗██║██║  ██║██║   ██║
-██║     ██║  ██║╚██████╔╝╚█████╔╝███████╗╚██████╗   ██║       ╚██████╔╝██║ ╚████║██████╔╝╚██████╔╝
-╚═╝     ╚═╝  ╚═╝ ╚═════╝  ╚════╝ ╚══════╝ ╚═════╝   ╚═╝        ╚═════╝ ╚═╝  ╚═══╝╚═════╝  ╚═════╝</pre>
+    <pre class="ascii-logo"> █████╗  ██████╗ ███████╗███╗   ██╗████████╗    ███████╗██╗      █████╗ ███╗   ███╗███████╗
+██╔══██╗██╔════╝ ██╔════╝████╗  ██║╚══██╔══╝    ██╔════╝██║     ██╔══██╗████╗ ████║██╔════╝
+███████║██║  ███╗█████╗  ██╔██╗ ██║   ██║       █████╗  ██║     ███████║██╔████╔██║█████╗
+██╔══██║██║   ██║██╔══╝  ██║╚██╗██║   ██║       ██╔══╝  ██║     ██╔══██║██║╚██╔╝██║██╔══╝
+██║  ██║╚██████╔╝███████╗██║ ╚████║   ██║       ██║     ███████╗██║  ██║██║ ╚═╝ ██║███████╗
+╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝  ╚═══╝   ╚═╝       ╚═╝     ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝</pre>
     <div class="tagline">agent designed, agent deployed, agent burns</div>
   </div>
 </body>

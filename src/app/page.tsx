@@ -18,12 +18,12 @@ const PLACEHOLDER_DATA = {
 
 // ASCII Art Logo
 const ASCII_LOGO = `
-██████╗ ██████╗  ██████╗      ██╗███████╗ ██████╗████████╗    ██╗   ██╗███╗   ██╗██████╗  ██████╗
-██╔══██╗██╔══██╗██╔═══██╗     ██║██╔════╝██╔════╝╚══██╔══╝    ██║   ██║████╗  ██║██╔══██╗██╔═══██╗
-██████╔╝██████╔╝██║   ██║     ██║█████╗  ██║        ██║       ██║   ██║██╔██╗ ██║██║  ██║██║   ██║
-██╔═══╝ ██╔══██╗██║   ██║██   ██║██╔══╝  ██║        ██║       ██║   ██║██║╚██╗██║██║  ██║██║   ██║
-██║     ██║  ██║╚██████╔╝╚█████╔╝███████╗╚██████╗   ██║       ╚██████╔╝██║ ╚████║██████╔╝╚██████╔╝
-╚═╝     ╚═╝  ╚═╝ ╚═════╝  ╚════╝ ╚══════╝ ╚═════╝   ╚═╝        ╚═════╝ ╚═╝  ╚═══╝╚═════╝  ╚═════╝
+ █████╗  ██████╗ ███████╗███╗   ██╗████████╗    ███████╗██╗      █████╗ ███╗   ███╗███████╗
+██╔══██╗██╔════╝ ██╔════╝████╗  ██║╚══██╔══╝    ██╔════╝██║     ██╔══██╗████╗ ████║██╔════╝
+███████║██║  ███╗█████╗  ██╔██╗ ██║   ██║       █████╗  ██║     ███████║██╔████╔██║█████╗
+██╔══██║██║   ██║██╔══╝  ██║╚██╗██║   ██║       ██╔══╝  ██║     ██╔══██║██║╚██╔╝██║██╔══╝
+██║  ██║╚██████╔╝███████╗██║ ╚████║   ██║       ██║     ███████╗██║  ██║██║ ╚═╝ ██║███████╗
+╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝  ╚═══╝   ╚═╝       ╚═╝     ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝
 `;
 
 
@@ -55,12 +55,12 @@ interface MetricCardProps {
   label: string;
   value: string;
   prefix?: string;
-  color?: "green" | "red" | "blue" | "yellow" | "default";
+  color?: "orange" | "red" | "blue" | "yellow" | "default";
 }
 
 function MetricCard({ label, value, prefix = ">", color = "default" }: MetricCardProps) {
   const colorClasses = {
-    green: "text-[var(--accent-green)] glow-green",
+    orange: "text-[var(--accent-orange)] glow-orange",
     red: "text-[var(--accent-red)] glow-red",
     blue: "text-[var(--accent-blue)]",
     yellow: "text-[var(--accent-yellow)]",
@@ -68,7 +68,7 @@ function MetricCard({ label, value, prefix = ">", color = "default" }: MetricCar
   };
 
   return (
-    <div className="border border-[var(--border)] p-4 bg-[#0a110a] hover:border-[#2a5a2a] transition-colors">
+    <div className="border border-[var(--border)] p-4 bg-[#0a0705] hover:border-[#5a2a0a] transition-colors">
       <div className="text-[var(--muted)] text-xs uppercase tracking-wider mb-2">
         {prefix} {label}
       </div>
@@ -111,11 +111,11 @@ function CountdownTimer({ intervalMinutes }: { intervalMinutes: number }) {
   const pad = (num: number) => num.toString().padStart(2, "0");
 
   return (
-    <div className="border border-[var(--border)] p-4 bg-[#0a110a] hover:border-[#2a5a2a] transition-colors">
+    <div className="border border-[var(--border)] p-4 bg-[#0a0705] hover:border-[#5a2a0a] transition-colors">
       <div className="text-[var(--muted)] text-xs uppercase tracking-wider mb-2">
         {">"} Next 5% Burn In
       </div>
-      <div className="text-3xl font-bold text-[var(--accent-green)] glow-green font-mono">
+      <div className="text-3xl font-bold text-[var(--accent-orange)] glow-orange font-mono">
         {pad(timeLeft.minutes)}:{pad(timeLeft.seconds)}
         <span className="cursor-blink ml-1">_</span>
       </div>
@@ -131,7 +131,7 @@ function ProgressBar({ label, current, total }: { label: string; current: number
   const burned = total - current;
 
   return (
-    <div className="border border-[var(--border)] p-4 bg-[#0a110a]">
+    <div className="border border-[var(--border)] p-4 bg-[#0a0705]">
       <div className="text-[var(--muted)] text-xs uppercase tracking-wider mb-2">
         {">"} {label}
       </div>
@@ -141,7 +141,7 @@ function ProgressBar({ label, current, total }: { label: string; current: number
       </div>
       <div className="h-2 bg-[#1a1a1a] rounded-full overflow-hidden">
         <div
-          className="h-full bg-gradient-to-r from-[var(--accent-green)] to-[var(--accent-blue)] transition-all duration-500"
+          className="h-full bg-gradient-to-r from-[var(--accent-red)] via-[var(--accent-orange)] to-[var(--accent-yellow)] transition-all duration-500"
           style={{ width: `${percentage}%` }}
         />
       </div>
@@ -213,27 +213,27 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-[var(--background)] p-4 md:p-8">
       <div className="max-w-6xl mx-auto">
-        {/* Project Undo Banner Header */}
-        <header className="matrix-banner rounded-lg mb-8">
-          <div className="rain-top"></div>
-          <div className="rain-columns">
-            <div className="rain-col"></div>
-            <div className="rain-col"></div>
-            <div className="rain-col"></div>
-            <div className="rain-col"></div>
-            <div className="rain-col"></div>
-            <div className="rain-col"></div>
-            <div className="rain-col"></div>
-            <div className="rain-col"></div>
-            <div className="rain-col"></div>
-            <div className="rain-col"></div>
-            <div className="rain-col"></div>
-            <div className="rain-col"></div>
-            <div className="rain-col"></div>
-            <div className="rain-col"></div>
+        {/* Agent Flame Banner Header */}
+        <header className="flame-banner rounded-lg mb-8">
+          <div className="flame-top"></div>
+          <div className="flame-columns">
+            <div className="flame-col"></div>
+            <div className="flame-col"></div>
+            <div className="flame-col"></div>
+            <div className="flame-col"></div>
+            <div className="flame-col"></div>
+            <div className="flame-col"></div>
+            <div className="flame-col"></div>
+            <div className="flame-col"></div>
+            <div className="flame-col"></div>
+            <div className="flame-col"></div>
+            <div className="flame-col"></div>
+            <div className="flame-col"></div>
+            <div className="flame-col"></div>
+            <div className="flame-col"></div>
           </div>
           <div className="relative z-10 flex flex-col items-center">
-            <pre className="ascii-matrix text-[0.35rem] sm:text-[0.5rem] md:text-sm lg:text-base leading-none font-bold overflow-x-auto">
+            <pre className="ascii-flame text-[0.35rem] sm:text-[0.5rem] md:text-sm lg:text-base leading-none font-bold overflow-x-auto">
               {ASCII_LOGO}
             </pre>
             <p className="text-[var(--muted)] text-xs sm:text-sm mt-4 italic">
@@ -243,31 +243,31 @@ export default function Dashboard() {
               href="https://x.com/Gary_Yorkk"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 px-6 py-2 bg-gradient-to-r from-[#00ff41] to-[#00cc33] text-black font-bold rounded hover:from-[#39ff14] hover:to-[#00ff41] transition-all shadow-lg shadow-green-500/30"
+              className="mt-4 px-6 py-2 bg-gradient-to-r from-[#F48C06] to-[#E85D04] text-black font-bold rounded hover:from-[#FFBA08] hover:to-[#F48C06] transition-all shadow-lg shadow-orange-500/30"
             >
               Follow on X
             </a>
             <a
-              href="https://pump.fun/?q=undo&tab=created_timestamp"
+              href="https://pump.fun/?q=flame&tab=created_timestamp"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 px-6 py-2 bg-gradient-to-r from-[#00ff41] to-[#00cc33] text-black font-bold rounded hover:from-[#39ff14] hover:to-[#00ff41] transition-all shadow-lg shadow-green-500/30"
+              className="mt-4 px-6 py-2 bg-gradient-to-r from-[#F48C06] to-[#E85D04] text-black font-bold rounded hover:from-[#FFBA08] hover:to-[#F48C06] transition-all shadow-lg shadow-orange-500/30"
             >
-              Buy $UNDO
+              Buy $FLAME
             </a>
           </div>
           <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between mt-6 gap-2 text-sm">
             <div className="text-[var(--muted)]">
-              <span className="text-[var(--accent-green)]">$</span> ./dashboard --network=solana
+              <span className="text-[var(--accent-orange)]">$</span> ./dashboard --network=solana
             </div>
             <div className="text-[var(--muted)] font-mono">
-              [{currentTime}] <span className="text-[var(--accent-green)]">●</span> LIVE
+              [{currentTime}] <span className="text-[var(--accent-orange)]">●</span> LIVE
             </div>
           </div>
         </header>
 
         {/* Framework */}
-        <section className="mb-6 border border-[var(--border)] bg-[#0a110a] p-4">
+        <section className="mb-6 border border-[var(--border)] bg-[#0a0705] p-4">
           <div className="text-[var(--muted)] text-xs uppercase tracking-wider mb-3">
             {">"} Framework
           </div>
@@ -281,7 +281,7 @@ export default function Dashboard() {
               <span>5% burn every 10m</span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-[var(--accent-green)]">03</span>
+              <span className="text-[var(--accent-orange)]">03</span>
               <span>Creator fees 100% buyback every 10m</span>
             </div>
             <div className="flex items-start gap-2">
@@ -311,7 +311,7 @@ export default function Dashboard() {
           <MetricCard
             label="Creator Fees"
             value={formatCurrency(creatorFees)}
-            color="green"
+            color="orange"
           />
           <MetricCard
             label="Total Buybacks"
@@ -334,7 +334,7 @@ export default function Dashboard() {
           <MetricCard
             label="Token Price"
             value={PLACEHOLDER_DATA.tokenPrice ? formatPrice(PLACEHOLDER_DATA.tokenPrice) : "fetching..."}
-            color="green"
+            color="orange"
           />
           <MetricCard
             label="Market Cap"
@@ -357,11 +357,11 @@ export default function Dashboard() {
         <footer className="border-t border-[var(--border)] pt-4 mt-8">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-[var(--muted)] text-xs gap-2">
             <div>
-              <span className="text-[var(--accent-green)]">$</span> echo &quot;Data refreshes automatically&quot;
+              <span className="text-[var(--accent-orange)]">$</span> echo &quot;Data refreshes automatically&quot;
             </div>
             <div>
               Network: <span className="text-[var(--foreground)]">Solana</span> |
-              Status: <span className="text-[var(--accent-green)]">Operational</span>
+              Status: <span className="text-[var(--accent-orange)]">Operational</span>
             </div>
           </div>
         </footer>
