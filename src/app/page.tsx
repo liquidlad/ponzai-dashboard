@@ -18,12 +18,12 @@ const PLACEHOLDER_DATA = {
 
 // ASCII Art Logo
 const ASCII_LOGO = `
- ██████╗ ██████╗ ██╗███╗   ██╗    ██████╗ ███████╗██╗     ███████╗████████╗███████╗██████╗
-██╔════╝██╔═══██╗██║████╗  ██║    ██╔══██╗██╔════╝██║     ██╔════╝╚══██╔══╝██╔════╝██╔══██╗
-██║     ██║   ██║██║██╔██╗ ██║    ██║  ██║█████╗  ██║     █████╗     ██║   █████╗  ██████╔╝
-██║     ██║   ██║██║██║╚██╗██║    ██║  ██║██╔══╝  ██║     ██╔══╝     ██║   ██╔══╝  ██╔══██╗
-╚██████╗╚██████╔╝██║██║ ╚████║    ██████╔╝███████╗███████╗███████╗   ██║   ███████╗██║  ██║
- ╚═════╝ ╚═════╝ ╚═╝╚═╝  ╚═══╝    ╚═════╝ ╚══════╝╚══════╝╚══════╝   ╚═╝   ╚══════╝╚═╝  ╚═╝
+ █████╗  ██████╗ ███████╗███╗   ██╗████████╗    ███████╗██╗██████╗ ███████╗
+██╔══██╗██╔════╝ ██╔════╝████╗  ██║╚══██╔══╝    ██╔════╝██║██╔══██╗██╔════╝
+███████║██║  ███╗█████╗  ██╔██╗ ██║   ██║       █████╗  ██║██████╔╝█████╗
+██╔══██║██║   ██║██╔══╝  ██║╚██╗██║   ██║       ██╔══╝  ██║██╔══██╗██╔══╝
+██║  ██║╚██████╔╝███████╗██║ ╚████║   ██║       ██║     ██║██║  ██║███████╗
+╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝  ╚═══╝   ╚═╝       ╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝
 `;
 
 
@@ -213,7 +213,7 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-[var(--background)] p-4 md:p-8">
       <div className="max-w-6xl mx-auto">
-        {/* Coin Deleter Banner Header */}
+        {/* Agent Fire Banner Header */}
         <header className="flame-banner rounded-lg mb-8">
           <div className="flame-top"></div>
           <div className="flame-columns">
@@ -248,12 +248,12 @@ export default function Dashboard() {
               Follow on X
             </a>
             <a
-              href="https://pump.fun/?q=deleter&tab=created_timestamp"
+              href="https://pump.fun/?q=fire&tab=created_timestamp"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4 px-6 py-2 bg-gradient-to-r from-[#F48C06] to-[#E85D04] text-black font-bold rounded hover:from-[#FFBA08] hover:to-[#F48C06] transition-all shadow-lg shadow-orange-500/30"
             >
-              Buy $DELETER
+              Buy $FIRE
             </a>
           </div>
           <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between mt-6 gap-2 text-sm">
