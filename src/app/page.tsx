@@ -26,18 +26,18 @@ const ASCII_LOGO = `
 ╚══════╝╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═════╝      ╚═════╝  ╚═════╝    ╚═╝
 `;
 
-// Mock holder addresses for lottery wheel
+// Mock holder addresses and weights for lottery wheel (natural distribution)
 const MOCK_HOLDERS = [
-  "7xKp...3mNv",
-  "Bq4R...8jTw",
-  "9fLm...2pXa",
-  "Hd6Y...5kRc",
-  "3wNs...7vEb",
-  "Kj8Q...1nGf",
-  "5tAe...9hWd",
-  "Vm2C...4rUs",
-  "Fp7Z...6bMx",
-  "Aw3J...0yLq",
+  { address: "7xKp...3mNv", weight: 22 },
+  { address: "Bq4R...8jTw", weight: 16 },
+  { address: "9fLm...2pXa", weight: 13 },
+  { address: "Hd6Y...5kRc", weight: 11 },
+  { address: "3wNs...7vEb", weight: 9 },
+  { address: "Kj8Q...1nGf", weight: 8 },
+  { address: "5tAe...9hWd", weight: 7 },
+  { address: "Vm2C...4rUs", weight: 6 },
+  { address: "Fp7Z...6bMx", weight: 5 },
+  { address: "Aw3J...0yLq", weight: 3 },
 ];
 
 // Card suits and values for war game
@@ -240,7 +240,7 @@ function useCountdown(intervalMinutes: number) {
   return timeLeft;
 }
 
-function LotteryWheel({ holders, spinning, winnerIndex }: { holders: string[]; spinning: boolean; winnerIndex: number }) {
+function LotteryWheel({ holders, spinning, winnerIndex }: { holders: typeof MOCK_HOLDERS; spinning: boolean; winnerIndex: number }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rotationRef = useRef(0);
   const animFrameRef = useRef<number>(0);
@@ -253,6 +253,8 @@ function LotteryWheel({ holders, spinning, winnerIndex }: { holders: string[]; s
     "#DC2F02", "#E85D04", "#FFBA08", "#F48C06", "#DC2F02",
   ];
 
+  const totalWeight = holders.reduce((sum, h) => sum + h.weight, 0);
+
   const drawWheel = useCallback((rotation: number) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -262,7 +264,6 @@ function LotteryWheel({ holders, spinning, winnerIndex }: { holders: string[]; s
     const size = canvas.width;
     const center = size / 2;
     const radius = center - 10;
-    const segmentAngle = (2 * Math.PI) / holders.length;
 
     ctx.clearRect(0, 0, size, size);
 
@@ -273,15 +274,16 @@ function LotteryWheel({ holders, spinning, winnerIndex }: { holders: string[]; s
     ctx.lineWidth = 4;
     ctx.stroke();
 
-    // Draw segments
+    // Draw weighted segments
+    let currentAngle = rotation;
     for (let i = 0; i < holders.length; i++) {
-      const startAngle = rotation + i * segmentAngle;
-      const endAngle = startAngle + segmentAngle;
+      const segmentAngle = (holders[i].weight / totalWeight) * 2 * Math.PI;
+      const endAngle = currentAngle + segmentAngle;
 
       // Segment fill
       ctx.beginPath();
       ctx.moveTo(center, center);
-      ctx.arc(center, center, radius, startAngle, endAngle);
+      ctx.arc(center, center, radius, currentAngle, endAngle);
       ctx.closePath();
       ctx.fillStyle = segmentColors[i % segmentColors.length];
       ctx.globalAlpha = i === winnerIndex && !spinning ? 1 : 0.7;
@@ -296,12 +298,15 @@ function LotteryWheel({ holders, spinning, winnerIndex }: { holders: string[]; s
       // Text
       ctx.save();
       ctx.translate(center, center);
-      ctx.rotate(startAngle + segmentAngle / 2);
+      ctx.rotate(currentAngle + segmentAngle / 2);
       ctx.textAlign = "right";
       ctx.fillStyle = "#0a0604";
-      ctx.font = `bold ${Math.max(10, size / 30)}px monospace`;
-      ctx.fillText(holders[i], radius - 12, 4);
+      const fontSize = Math.max(9, Math.min(size / 30, segmentAngle * radius * 0.3));
+      ctx.font = `bold ${fontSize}px monospace`;
+      ctx.fillText(holders[i].address, radius - 12, 4);
       ctx.restore();
+
+      currentAngle = endAngle;
     }
 
     // Center circle
@@ -336,14 +341,14 @@ function LotteryWheel({ holders, spinning, winnerIndex }: { holders: string[]; s
   useEffect(() => {
     if (spinning) {
       spinStartRef.current = Date.now();
-      // Target: land on winner segment. We spin multiple full rotations plus offset to land on the winner.
-      const segmentAngle = (2 * Math.PI) / holders.length;
-      // The pointer is at the top (angle = -PI/2 from canvas perspective which is angle 0 in our rotation).
-      // We want the winning segment's center at the top.
-      // Pointer is at top = angle -PI/2. The segment at index i starts at rotation + i * segmentAngle.
-      // We want: rotation + winnerIndex * segmentAngle + segmentAngle/2 = -PI/2 (mod 2PI)
-      // So final rotation = -PI/2 - winnerIndex * segmentAngle - segmentAngle/2
-      const finalSegmentRotation = -Math.PI / 2 - winnerIndex * segmentAngle - segmentAngle / 2;
+      // Calculate the angle offset for the winning segment using weighted sizes
+      let winnerStartAngle = 0;
+      for (let i = 0; i < winnerIndex; i++) {
+        winnerStartAngle += (holders[i].weight / totalWeight) * 2 * Math.PI;
+      }
+      const winnerSegmentAngle = (holders[winnerIndex].weight / totalWeight) * 2 * Math.PI;
+      const winnerCenterAngle = winnerStartAngle + winnerSegmentAngle / 2;
+      const finalSegmentRotation = -Math.PI / 2 - winnerCenterAngle;
       // Add 8 full spins
       targetRotationRef.current = finalSegmentRotation - 8 * 2 * Math.PI;
       spinDurationRef.current = 5000;
@@ -396,15 +401,15 @@ function LotteryTab() {
   const [spinning, setSpinning] = useState(false);
   const [winnerIndex, setWinnerIndex] = useState(-1);
   const [winner, setWinner] = useState<string | null>(null);
-  const [pastWinners, setPastWinners] = useState<{ address: string; time: string; prize: string }[]>([
-    { address: "Bq4R...8jTw", time: "14:20:00", prize: "12,450 $ZEROED" },
-    { address: "5tAe...9hWd", time: "14:10:00", prize: "8,220 $ZEROED" },
-    { address: "7xKp...3mNv", time: "14:00:00", prize: "15,100 $ZEROED" },
+  const [pastWinners, setPastWinners] = useState<{ address: string; prize: string }[]>([
+    { address: "Bq4R...8jTw", prize: "12,450 $ZEROED" },
+    { address: "5tAe...9hWd", prize: "8,220 $ZEROED" },
+    { address: "7xKp...3mNv", prize: "15,100 $ZEROED" },
   ]);
 
   const pad = (num: number) => num.toString().padStart(2, "0");
 
-  const handleSpin = () => {
+  const triggerSpin = useCallback(() => {
     if (spinning) return;
     setSpinning(true);
     setWinner(null);
@@ -413,21 +418,23 @@ function LotteryTab() {
 
     setTimeout(() => {
       setSpinning(false);
-      setWinner(MOCK_HOLDERS[idx]);
-      const now = new Date();
-      const timeStr = now.toLocaleString("en-US", {
-        hour12: false,
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-      });
+      setWinner(MOCK_HOLDERS[idx].address);
       const prize = `${(Math.floor(Math.random() * 20000) + 5000).toLocaleString()} $ZEROED`;
       setPastWinners((prev) => [
-        { address: MOCK_HOLDERS[idx], time: timeStr, prize },
+        { address: MOCK_HOLDERS[idx].address, prize },
         ...prev.slice(0, 9),
       ]);
     }, 5200);
-  };
+  }, [spinning]);
+
+  // Auto-spin when countdown hits zero
+  const prevTotalSeconds = useRef(timeLeft.totalSeconds);
+  useEffect(() => {
+    if (prevTotalSeconds.current > 0 && timeLeft.totalSeconds === 0) {
+      triggerSpin();
+    }
+    prevTotalSeconds.current = timeLeft.totalSeconds;
+  }, [timeLeft.totalSeconds, triggerSpin]);
 
   return (
     <div>
@@ -467,20 +474,9 @@ function LotteryTab() {
             {pad(timeLeft.minutes)}:{pad(timeLeft.seconds)}
             <span className="cursor-blink ml-1">_</span>
           </div>
-          <div className="text-[var(--muted)] text-xs mb-4">
-            Synced with 10-minute burn interval
+          <div className="text-[var(--muted)] text-xs">
+            {spinning ? "Drawing winner..." : "Synced with 10-minute burn interval — auto-spins at zero"}
           </div>
-          <button
-            onClick={handleSpin}
-            disabled={spinning}
-            className={`w-full py-3 px-6 font-bold font-mono uppercase tracking-wider rounded transition-all ${
-              spinning
-                ? "bg-[#1a1a1a] text-[var(--muted)] cursor-not-allowed"
-                : "bg-gradient-to-r from-[#F48C06] to-[#E85D04] text-black hover:from-[#FFBA08] hover:to-[#F48C06] shadow-lg shadow-orange-500/30"
-            }`}
-          >
-            {spinning ? "[ SPINNING... ]" : "[ DEMO SPIN ]"}
-          </button>
         </div>
 
         {/* Winner Display */}
@@ -533,7 +529,6 @@ function LotteryTab() {
         <div className="space-y-1 font-mono text-sm">
           {pastWinners.map((w, i) => (
             <div key={i} className="flex items-center gap-3 py-1 border-b border-[var(--border)] last:border-b-0">
-              <span className="text-[var(--muted)] text-xs">[{w.time}]</span>
               <span className="text-[var(--accent-orange)]">{w.address}</span>
               <span className="text-[var(--muted)]">-&gt;</span>
               <span className="text-[var(--accent-yellow)]">{w.prize}</span>
@@ -889,7 +884,6 @@ function WarTab() {
         <div className="space-y-1 font-mono text-sm">
           {warLog.map((entry, i) => (
             <div key={i} className="flex flex-wrap items-center gap-2 py-1 border-b border-[var(--border)] last:border-b-0">
-              <span className="text-[var(--muted)] text-xs">[{entry.time}]</span>
               <span className="text-[var(--accent-blue)]">
                 {entry.playerCard.value}{entry.playerCard.suit}
               </span>
