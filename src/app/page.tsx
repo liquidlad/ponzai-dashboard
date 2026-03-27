@@ -1003,7 +1003,7 @@ export default function Dashboard() {
               agent designed, agent deployed, coin torch
             </p>
             <a
-              href="https://x.com/Franky_Doods"
+              href="https://x.com/Phil_Chuds"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4 px-6 py-2 bg-gradient-to-r from-[#F48C06] to-[#E85D04] text-black font-bold rounded hover:from-[#FFBA08] hover:to-[#F48C06] transition-all shadow-lg shadow-orange-500/30"
