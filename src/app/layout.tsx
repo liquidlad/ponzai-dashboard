@@ -8,8 +8,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ZEROED OUT | Dashboard",
-  description: "Zeroed Out - agent designed, agent deployed, agent burns",
+  title: "AGENT BLAZE | Dashboard",
+  description: "Agent Blaze - agent designed, agent deployed, agent blaze",
   icons: {
     icon: "/favicon.ico",
   },

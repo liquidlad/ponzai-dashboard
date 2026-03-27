@@ -18,12 +18,12 @@ const PLACEHOLDER_DATA = {
 
 // ASCII Art Logo
 const ASCII_LOGO = `
-███████╗███████╗██████╗  ██████╗ ███████╗██████╗      ██████╗ ██╗   ██╗████████╗
-╚══███╔╝██╔════╝██╔══██╗██╔═══██╗██╔════╝██╔══██╗    ██╔═══██╗██║   ██║╚══██╔══╝
-  ███╔╝ █████╗  ██████╔╝██║   ██║█████╗  ██║  ██║    ██║   ██║██║   ██║   ██║
- ███╔╝  ██╔══╝  ██╔══██╗██║   ██║██╔══╝  ██║  ██║    ██║   ██║██║   ██║   ██║
-███████╗███████╗██║  ██║╚██████╔╝███████╗██████╔╝    ╚██████╔╝╚██████╔╝   ██║
-╚══════╝╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═════╝      ╚═════╝  ╚═════╝    ╚═╝
+ █████╗  ██████╗ ███████╗███╗   ██╗████████╗    ██████╗ ██╗      █████╗ ███████╗███████╗
+██╔══██╗██╔════╝ ██╔════╝████╗  ██║╚══██╔══╝    ██╔══██╗██║     ██╔══██╗╚══███╔╝██╔════╝
+███████║██║  ███╗█████╗  ██╔██╗ ██║   ██║       ██████╔╝██║     ███████║  ███╔╝ █████╗
+██╔══██║██║   ██║██╔══╝  ██║╚██╗██║   ██║       ██╔══██╗██║     ██╔══██║ ███╔╝  ██╔══╝
+██║  ██║╚██████╔╝███████╗██║ ╚████║   ██║       ██████╔╝███████╗██║  ██║███████╗███████╗
+╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝  ╚═══╝   ╚═╝       ╚═════╝ ╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝
 `;
 
 // Mock holder addresses and weights for lottery wheel (natural distribution)
@@ -402,9 +402,9 @@ function LotteryTab() {
   const [winnerIndex, setWinnerIndex] = useState(-1);
   const [winner, setWinner] = useState<string | null>(null);
   const [pastWinners, setPastWinners] = useState<{ address: string; prize: string }[]>([
-    { address: "Bq4R...8jTw", prize: "12,450 $ZEROED" },
-    { address: "5tAe...9hWd", prize: "8,220 $ZEROED" },
-    { address: "7xKp...3mNv", prize: "15,100 $ZEROED" },
+    { address: "Bq4R...8jTw", prize: "12,450 $BLAZE" },
+    { address: "5tAe...9hWd", prize: "8,220 $BLAZE" },
+    { address: "7xKp...3mNv", prize: "15,100 $BLAZE" },
   ]);
 
   const pad = (num: number) => num.toString().padStart(2, "0");
@@ -419,7 +419,7 @@ function LotteryTab() {
     setTimeout(() => {
       setSpinning(false);
       setWinner(MOCK_HOLDERS[idx].address);
-      const prize = `${(Math.floor(Math.random() * 20000) + 5000).toLocaleString()} $ZEROED`;
+      const prize = `${(Math.floor(Math.random() * 20000) + 5000).toLocaleString()} $BLAZE`;
       setPastWinners((prev) => [
         { address: MOCK_HOLDERS[idx].address, prize },
         ...prev.slice(0, 9),
@@ -450,7 +450,7 @@ function LotteryTab() {
           </div>
           <div className="flex items-start gap-2">
             <span className="text-[var(--accent-yellow)]">02</span>
-            <span>All $ZEROED holders are automatically entered</span>
+            <span>All $BLAZE holders are automatically entered</span>
           </div>
           <div className="flex items-start gap-2">
             <span className="text-[var(--accent-orange)]">03</span>
@@ -571,7 +571,7 @@ function CardBack({ label }: { label?: string }) {
       <div className="absolute inset-4 border border-[var(--border)] rounded opacity-30" />
       <div className="text-[var(--accent-orange)] text-3xl font-bold glow-orange">$Z</div>
       <div className="text-[var(--muted)] text-[10px] mt-1 uppercase tracking-widest font-mono">
-        {label || "ZEROED"}
+        {label || "BLAZE"}
       </div>
       {/* Corner flames */}
       <div className="absolute top-1 left-1 text-[var(--accent-red)] text-xs opacity-60">&#x1F525;</div>
@@ -719,7 +719,7 @@ function WarTab() {
         <div className="space-y-2 text-sm font-mono">
           <div className="flex items-start gap-2">
             <span className="text-[var(--accent-blue)]">01</span>
-            <span>Deposit $ZEROED to enter a war challenge</span>
+            <span>Deposit $BLAZE to enter a war challenge</span>
           </div>
           <div className="flex items-start gap-2">
             <span className="text-[var(--accent-yellow)]">02</span>
@@ -820,7 +820,7 @@ function WarTab() {
               {parseInt(depositAmount.replace(/,/g, "")) * 2 > 0
                 ? (parseInt(depositAmount.replace(/,/g, "")) * 2).toLocaleString()
                 : depositAmount}{" "}
-              $ZEROED
+              $BLAZE
             </span>
           </div>
         )}
@@ -832,7 +832,7 @@ function WarTab() {
               onClick={handleDeposit}
               className="px-8 py-3 bg-gradient-to-r from-[#F48C06] to-[#E85D04] text-black font-bold font-mono uppercase tracking-wider rounded hover:from-[#FFBA08] hover:to-[#F48C06] transition-all shadow-lg shadow-orange-500/30"
             >
-              Deposit {depositAmount} $ZEROED to Challenge
+              Deposit {depositAmount} $BLAZE to Challenge
             </button>
           )}
           {phase === "deposited" && (
@@ -852,12 +852,12 @@ function WarTab() {
             <div className="flex flex-col items-center gap-3">
               {warResult === "WIN" && (
                 <div className="text-[var(--accent-yellow)] text-sm font-mono">
-                  +{depositAmount} $ZEROED earned | {Math.floor(parseInt(depositAmount.replace(/,/g, "")) * 0.1).toLocaleString()} $ZEROED burned
+                  +{depositAmount} $BLAZE earned | {Math.floor(parseInt(depositAmount.replace(/,/g, "")) * 0.1).toLocaleString()} $BLAZE burned
                 </div>
               )}
               {warResult === "LOSS" && (
                 <div className="text-[var(--accent-red)] text-sm font-mono">
-                  -{depositAmount} $ZEROED lost | {Math.floor(parseInt(depositAmount.replace(/,/g, "")) * 0.1).toLocaleString()} $ZEROED burned
+                  -{depositAmount} $BLAZE lost | {Math.floor(parseInt(depositAmount.replace(/,/g, "")) * 0.1).toLocaleString()} $BLAZE burned
                 </div>
               )}
               {warResult === "TIE" && (
@@ -902,7 +902,7 @@ function WarTab() {
                 {entry.result}
               </span>
               <span className="text-[var(--muted)]">|</span>
-              <span className="text-[var(--foreground)]">{entry.wager} $ZEROED</span>
+              <span className="text-[var(--foreground)]">{entry.wager} $BLAZE</span>
             </div>
           ))}
         </div>
@@ -976,7 +976,7 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-[var(--background)] p-4 md:p-8">
       <div className="max-w-6xl mx-auto">
-        {/* Zeroed Out Banner Header */}
+        {/* Agent Blaze Banner Header */}
         <header className="flame-banner rounded-lg mb-8">
           <div className="flame-top"></div>
           <div className="flame-columns">
@@ -1000,7 +1000,7 @@ export default function Dashboard() {
               {ASCII_LOGO}
             </pre>
             <p className="text-[var(--muted)] text-xs sm:text-sm mt-4 italic">
-              agent designed, agent deployed, agent burns
+              agent designed, agent deployed, agent blaze
             </p>
             <a
               href="https://x.com/Franky_Doods"
@@ -1011,12 +1011,12 @@ export default function Dashboard() {
               Follow on X
             </a>
             <a
-              href="https://pump.fun/?q=zeroed&tab=created_timestamp"
+              href="https://pump.fun/?q=blaze&tab=created_timestamp"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4 px-6 py-2 bg-gradient-to-r from-[#F48C06] to-[#E85D04] text-black font-bold rounded hover:from-[#FFBA08] hover:to-[#F48C06] transition-all shadow-lg shadow-orange-500/30"
             >
-              Buy $ZEROED
+              Buy $BLAZE
             </a>
           </div>
           <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between mt-6 gap-2 text-sm">
